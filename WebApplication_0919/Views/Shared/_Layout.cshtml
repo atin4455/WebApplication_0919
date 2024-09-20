@@ -28,7 +28,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Create">新增商品</a>
+                        </li>
                     </ul>
+
+
+                    <ul class="navbar-nav flex-grow-1">
+                        @{
+                            string fullName = User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value;
+
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Index"> @User.Identity.Name (@fullName) </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Logout">登出</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Login">登入</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
                 </div>
             </div>
         </nav>
