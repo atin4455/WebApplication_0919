@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using WebApplication_0919.Models;
 
 namespace WebApplication_0919.Models.EFModels;
 
@@ -149,4 +150,6 @@ public partial class AppDbContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<WebApplication_0919.Models.ProductCreateVm> ProductCreateVm { get; set; } = default!;
 }
