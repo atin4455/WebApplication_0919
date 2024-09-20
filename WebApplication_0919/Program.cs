@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication_0919.Models.EFModels;
+using WebApplication_0919.Models.EFModels.Services;
 
 namespace WebApplication_0919
 {
@@ -14,6 +15,13 @@ namespace WebApplication_0919
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // ª`¥UCategoryRepository
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            // ª`¥UCategoryService
+            builder.Services.AddScoped<CategoryService>();
+
 
             var app = builder.Build();
 
